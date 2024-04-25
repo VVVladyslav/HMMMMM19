@@ -31,24 +31,6 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-/*
-    @Bean
-    public SecurityFilterChain filterChain(ServerHttpSecurity http) throws Exception {
-        http
-                .authorizeExchange(exchanges -> exchanges
-                        .pathMatchers("/blog/**").permitAll()
-                        .anyExchange().authenticated()
-                )
-                .httpBasic(Customizer.withDefaults())
-                .formLogin(formLogin -> formLogin
-                        .loginPage("/login")
-                )
-                        .addFilterBefore((WebFilter) new JwtRequestFilter(authenticationManager(), userDetailsService, jwtUtil),
-                                SecurityWebFiltersOrder.AUTHENTICATION);
-
-        return (SecurityFilterChain) http.build();
-    }
-*/
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -72,4 +54,3 @@ public class SecurityConfig {
         return authenticationConfiguration.getAuthenticationManager();
     }
 }
-
