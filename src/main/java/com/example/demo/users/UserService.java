@@ -13,14 +13,11 @@ public class UserService {
         repository.save(user);
     }
     public User findByUsername(String username) {
-        //Optional<User> user = repository.findById(Long.valueOf(username));
         Optional<User> user = repository.findById(username);
 
         if (user.isEmpty()) {
             return null;
         }
-
         return user.get();
     }
 }
-
