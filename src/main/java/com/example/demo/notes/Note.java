@@ -36,7 +36,7 @@ public class Note {
     @Builder.Default
     private LocalDateTime created_at = LocalDateTime.now();
 
-    @Column(name = "user_notes") // Добавлено новое свойство для заметок пользователя
+    @Column(name = "user_notes")
     private String userNotes;
 
 }
